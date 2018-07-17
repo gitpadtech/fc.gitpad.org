@@ -1,0 +1,50 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/yeluoqiuzhi/dev-tools/ImageMagick-7.0.5/bin:/Users/yeluoqiuzhi/usr/local/bin:/usr/local/bin:/Users/yeluoqiuzhi/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/yeluoqiuzhi/dev-tools/ImageMagick-7.0.5/bin:/Users/yeluoqiuzhi/usr/local/bin:/Users/yeluoqiuzhi/.cargo/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.11.1
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "gatsby",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+      "@material-ui/core": "latest",
+      "gatsby": "latest",
+      "jss": "latest",
+      "prop-types": "latest",
+      "react": "latest",
+      "react-dom": "latest",
+      "react-jss": "latest"
+    },
+    "scripts": {
+      "develop": "gatsby develop",
+      "build": "gatsby build"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@material-ui%2fcore: tunneling socket could not be established, cause=connect ECONNREFUSED 127.0.0.1:1087
+      at ClientRequest.onError (/usr/local/lib/node_modules/yarn/lib/cli.js:146218:17)
+      at Object.onceWrapper (events.js:272:13)
+      at ClientRequest.emit (events.js:180:13)
+      at Socket.socketErrorListener (_http_client.js:395:9)
+      at Socket.emit (events.js:180:13)
+      at emitErrorNT (internal/streams/destroy.js:64:8)
+      at process._tickCallback (internal/process/next_tick.js:178:19)
