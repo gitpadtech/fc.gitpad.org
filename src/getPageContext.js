@@ -2,22 +2,31 @@
 
 import { SheetsRegistry } from 'jss';
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
+import { darken } from '@material-ui/core/styles/colorManipulator';
 
-// A theme with custom primary and secondary color.
-// It's optional.
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: purple[300],
-      main: purple[500],
-      dark: purple[700],
+function getTheme(uiTheme) {
+  const theme = createMuiTheme({
+    nprogress: {
+      color: uiTheme.paletteType === 'light' ? '#000' : '#fff',
     },
+    palette: { ...uiTheme.paletteColors, type: uiTheme.paletteType },
+  });
+  
+  // Expose the theme as a global variable so people can play with it.
+  if (process.browser) {
+    window.theme = theme;
+  }
+  return theme;
+}
+const theme = getTheme({
+  paletteType: 'light',
+  paletteColors: {
+    primary: blue,
     secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700],
+      // Darken so we reach the AA contrast ratio level.
+      main: darken(pink.A400, 0.08),
     },
   },
 });

@@ -10,7 +10,6 @@ function withRoot(Component) {
 
     constructor(props) {
       super(props);
-
       this.pageContext = this.props.pageContext || getPageContext();
     }
 
