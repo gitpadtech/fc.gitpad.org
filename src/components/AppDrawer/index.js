@@ -21,7 +21,7 @@ const AppDrawer = ({ classes }) =>
   <div>
     <div className={`${classes.toolbar} ${classes.toolbarGutter}`}>
       <Typography variant="title">
-        Material-UI
+        Finance Chart
       </Typography>
     </div>
     <Divider />

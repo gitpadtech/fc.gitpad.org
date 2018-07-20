@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import MenuIcon from '@material-ui/icons/Menu';
-import withRoot from '../withRoot';
-import AppDrawer from '../components/AppDrawer';
+import withRoot from '../../withRoot';
+import AppDrawer from '../AppDrawer';
 
 const drawerWidth = 240;
 
@@ -31,7 +31,7 @@ const styles = theme => ({
     width: '100%',
   },
   appBar: {
-    position: 'absolute',
+    // position: 'absolute',
     marginLeft: drawerWidth,
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -52,6 +52,13 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
+    paddingTop: 56,
+    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
+      paddingTop: 48,
+    },
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: 64,
+    },
   },
 });
 
@@ -66,7 +73,6 @@ class ResponsiveDrawer extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-
     return (
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
@@ -112,7 +118,7 @@ class ResponsiveDrawer extends React.Component {
           </Drawer>
         </Hidden>
         <main className={classes.content}>
-          {this.props.children()}
+          {this.props.children}
         </main>
       </div>
     );
@@ -125,3 +131,15 @@ ResponsiveDrawer.propTypes = {
 };
 
 export default withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
+
+// export const queryLayoutInfo = graphql`
+//   query LayoutInfo {
+//     allSitePage {
+//       edges {
+//         node {
+//           path
+//         }
+//       }
+//     }
+//   }
+// `;

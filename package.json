@@ -1,11 +1,12 @@
 {
-  "name": "gatsby",
-  "version": "1.0.0",
+  "name": "finance-chart.gitpad.org",
+  "version": "0.0.1",
   "dependencies": {
     "@material-ui/core": "^1.4.0",
     "@material-ui/icons": "^1.1.0",
     "classnames": "^2.2.6",
-    "gatsby": "^1.9.273",
+    "gatsby": "^2.0.0-beta.48",
+    "gatsby-cli": "^2.0.0-beta.6",
     "jss": "^9.8.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

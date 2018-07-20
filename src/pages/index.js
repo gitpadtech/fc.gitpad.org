@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -8,6 +9,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import DefaultLayout from '../components/layouts/default-layout';
 
 const styles = theme => ({
   root: {
@@ -36,30 +38,32 @@ class Index extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
-
+    console.log(this.props)
     return (
-      <div className={classes.root}>
-        <Dialog open={open} onClose={this.handleClose}>
-          <DialogTitle>Super Secret Password</DialogTitle>
-          <DialogContent>
-            <DialogContentText>1-2-3-4-5</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={this.handleClose}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <Typography variant="display1" gutterBottom>
-          Material-UI
-        </Typography>
-        <Typography variant="subheading" gutterBottom>
-          example project
-        </Typography>
-        <Button variant="contained" color="secondary" onClick={this.handleClick}>
-          Super Secret Password
-        </Button>
-      </div>
+      <DefaultLayout>
+        <div className={classes.root}>
+          <Dialog open={open} onClose={this.handleClose}>
+            <DialogTitle>Super Secret Password</DialogTitle>
+            <DialogContent>
+              <DialogContentText>1-2-3-4-5</DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button color="primary" onClick={this.handleClose}>
+                OK
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Typography variant="display1" gutterBottom>
+            Material-UI
+          </Typography>
+          <Typography variant="subheading" gutterBottom>
+            example project
+          </Typography>
+          <Button variant="contained" color="secondary" onClick={this.handleClick}>
+            Super Secret Password
+          </Button>
+        </div>
+      </DefaultLayout>
     );
   }
 }
@@ -69,3 +73,12 @@ Index.propTypes = {
 };
 
 export default withStyles(styles)(Index);
+
+export const queryIndexInfo = graphql`
+  query IndexInfo($path: String!) {
+    sitePage(path: { eq: $path }) {
+      path
+      component
+    }
+  }
+`;
