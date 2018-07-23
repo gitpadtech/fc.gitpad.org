@@ -130,25 +130,8 @@ class ResponsiveDrawer extends React.Component {
 ResponsiveDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  data: PropTypes.object.isRequired,
   activePagePath: PropTypes.string.isRequired,
 };
 
-export default withRoot(withStyles(styles, { withTheme: true })(
-  (props) =>
-    <StaticQuery
-      query={graphql`
-        query LayoutInfo {
-          allSitePage {
-            edges {
-              node {
-                path
-              }
-            }
-          }
-        }
-      `}
-      render={data => <ResponsiveDrawer data={data} {...props} />}
-    />
-));
+export default withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
 

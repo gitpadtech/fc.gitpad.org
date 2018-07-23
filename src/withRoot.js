@@ -15,10 +15,10 @@ function withRoot(Component) {
 
     componentDidMount() {
       // Remove the server-side injected CSS.
-      const jssStyles = document.querySelector('#server-side-jss');
-      if (jssStyles && jssStyles.parentNode) {
-        jssStyles.parentNode.removeChild(jssStyles);
-      }
+      // const jssStyles = document.querySelector('#server-side-jss');
+      // if (jssStyles && jssStyles.parentNode) {
+      //   jssStyles.parentNode.removeChild(jssStyles);
+      // }
     }
 
     render() {
