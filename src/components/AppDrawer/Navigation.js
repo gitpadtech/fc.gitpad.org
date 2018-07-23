@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import AppDrawerNavItem from './AppDrawerNavItem';
+import { page2Title } from '../../utils/helper';
+import ROUTERS from '../../routers';
+
 
 const styles = theme => ({
   root: {
@@ -15,6 +18,36 @@ const styles = theme => ({
   },
 });
 
+function renderNavItems(pages, activePagePath, depth = 0) {
+  return pages
+  .filter(page => !(page.displayNav === false))
+  .map(page => {
+    const title = page2Title(page.pathname);
+    const active = activePagePath.indexOf(page.pathname) !== -1;
+    if (page.children && page.children.length > 1) {
+      return (
+        <AppDrawerNavItem
+          title={title}
+          key={title}
+          depth={0}
+          active={active}
+        >
+          { renderNavItems(page.children, activePagePath, depth + 1) }
+        </AppDrawerNavItem>
+      );
+    }
+    return (
+      <AppDrawerNavItem
+        title={title}
+        key={title}
+        depth={depth}
+        active={active}
+        href={page.children ? page.children[0].pathname : page.pathname}
+      />
+    );
+  });
+}
+
 class Navigation extends React.Component {
   state = { open: true };
 
@@ -23,28 +56,16 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, activePagePath } = this.props;
 
     return (
       <div className={classes.root}>
         <List
           component="nav"
         >
-          <AppDrawerNavItem
-            title="getting started"
-            depth={0}
-            href="baidu"
-          />
-          <AppDrawerNavItem
-            title="Demos"
-            depth={0}
-          >
-            <AppDrawerNavItem
-              title="demo1"
-              depth={1}
-              href="https://baidu.com"
-            />
-          </AppDrawerNavItem>
+          {
+            renderNavItems(ROUTERS, activePagePath)
+          }
         </List>
       </div>
     );
@@ -53,6 +74,7 @@ class Navigation extends React.Component {
 
 Navigation.propTypes = {
   classes: PropTypes.object.isRequired,
+  activePagePath: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Navigation);

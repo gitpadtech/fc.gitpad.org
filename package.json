@@ -7,6 +7,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.0.0-beta.48",
     "gatsby-cli": "^2.0.0-beta.6",
+    "gatsby-link": "^2.0.0-beta.5",
     "jss": "^9.8.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import GatsbyLink from 'gatsby-link'
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import Button from '@material-ui/core/Button';
@@ -31,20 +32,25 @@ const styles = theme => ({
       fontWeight: theme.typography.fontWeightMedium,
     },
   },
+  link: {
+    textDecoration: 'none',
+  },
   active: {
-    color: theme.palette.primary.main,
-    fontWeight: theme.typography.fontWeightMedium,
+    '& button': {
+      color: theme.palette.primary.main,
+      fontWeight: theme.typography.fontWeightMedium,
+    }
   },
 });
 
 class AppDrawerNavItem extends React.Component {
   state = {
-    open: this.props.openImmediately,
+    open: this.props.active,
   };
 
   componentDidMount() {
     // So we only run this logic once.
-    if (!this.props.openImmediately) {
+    if (!this.props.active) {
       return;
     }
 
@@ -66,11 +72,11 @@ class AppDrawerNavItem extends React.Component {
       depth,
       href,
       onClick,
-      openImmediately,
+      active,
       title,
+      theme,
       ...other
     } = this.props;
-
     const style = {
       paddingLeft: 8 * (3 + 2 * depth),
     };
@@ -78,26 +84,36 @@ class AppDrawerNavItem extends React.Component {
     if (href) {
       return (
         <ListItem
-          className={classes.itemLeaf} disableGutters {...other}
-          component="a"
+          className={classes.itemLeaf}
+          disableGutters {...other}
+          component="div"
         >
-          <Button
-            className={classNames(classes.buttonLeaf, `depth-${depth}`)}
-            disableRipple
-            onClick={onClick}
-            style={style}
+          <GatsbyLink
+            to={href}
+            className={classes.link}
+            activeClassName={classes.active}
           >
-            {title}
-          </Button>
+            <Button
+              className={classNames(classes.buttonLeaf, `depth-${depth}`)}
+              component="button"
+              disableRipple
+              onClick={onClick}
+              style={style}
+            >
+              {title}
+            </Button>
+          </GatsbyLink>
         </ListItem>
       );
     }
     return (
-      <ListItem className={classes.item} disableGutters {...other}>
+      <ListItem
+        className={classes.item}
+        disableGutters {...other}
+      >
         <Button
           classes={{
             root: classes.button,
-            label: openImmediately ? 'algolia-lvl0' : '',
           }}
           onClick={this.handleClick}
           style={style}
@@ -118,12 +134,12 @@ AppDrawerNavItem.propTypes = {
   depth: PropTypes.number.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  openImmediately: PropTypes.bool,
   title: PropTypes.string.isRequired,
 };
 
 AppDrawerNavItem.defaultProps = {
-  openImmediately: false,
 };
 
-export default withStyles(styles)(AppDrawerNavItem);
+export default withStyles(styles, {
+  withTheme: true,
+})(AppDrawerNavItem);

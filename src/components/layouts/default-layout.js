@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,6 +11,7 @@ import Hidden from '@material-ui/core/Hidden';
 import MenuIcon from '@material-ui/icons/Menu';
 import withRoot from '../../withRoot';
 import AppDrawer from '../AppDrawer';
+import { page2Title } from '../../utils/helper';
 
 const drawerWidth = 240;
 
@@ -72,7 +74,7 @@ class ResponsiveDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes, theme, activePagePath } = this.props;
     return (
       <div className={classes.root}>
         <AppBar className={classes.appBar}>
@@ -86,7 +88,7 @@ class ResponsiveDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              Responsive drawer
+              {page2Title(activePagePath)}
             </Typography>
           </Toolbar>
         </AppBar>
@@ -103,7 +105,7 @@ class ResponsiveDrawer extends React.Component {
               keepMounted: true, // Better open performance on mobile.
             }}
           >
-            <AppDrawer />
+            <AppDrawer activePagePath={activePagePath} />
           </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">
@@ -114,7 +116,7 @@ class ResponsiveDrawer extends React.Component {
               paper: classes.drawerPaper,
             }}
           >
-            <AppDrawer />
+            <AppDrawer activePagePath={activePagePath} />
           </Drawer>
         </Hidden>
         <main className={classes.content}>
@@ -128,18 +130,25 @@ class ResponsiveDrawer extends React.Component {
 ResponsiveDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
+  activePagePath: PropTypes.string.isRequired,
 };
 
-export default withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
+export default withRoot(withStyles(styles, { withTheme: true })(
+  (props) =>
+    <StaticQuery
+      query={graphql`
+        query LayoutInfo {
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }
+      `}
+      render={data => <ResponsiveDrawer data={data} {...props} />}
+    />
+));
 
-// export const queryLayoutInfo = graphql`
-//   query LayoutInfo {
-//     allSitePage {
-//       edges {
-//         node {
-//           path
-//         }
-//       }
-//     }
-//   }
-// `;
