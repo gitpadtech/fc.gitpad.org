@@ -8,7 +8,7 @@ import getPageContext from './src/getPageContext';
 exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   // Get the context of the page to collected side effects.
   const pageContext = getPageContext();
-
+  console.log('=======ssr=======');
   const bodyHTML = renderToString(
     <JssProvider
       registry={pageContext.sheetsRegistry}

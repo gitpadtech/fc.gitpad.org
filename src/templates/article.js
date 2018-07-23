@@ -1,3 +1,7 @@
+/**
+ * This will lost all css in production build
+ */
+
 import React from 'react';
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types';
@@ -12,7 +16,7 @@ const styles = theme => ({
   },
 });
 
-class Index extends React.Component {
+class Article extends React.Component {
   render() {
     const { data, classes } = this.props;
     const post = data.markdownRemark;
@@ -29,11 +33,11 @@ class Index extends React.Component {
   }
 }
 
-Index.propTypes = {
+Article.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Index);
+export default withStyles(styles)(Article);
 
 export const articleQuery = graphql`
   query articleQuery($slug: String!) {
@@ -48,3 +52,9 @@ export const articleQuery = graphql`
     }
   }
 `;
+
+/**
+ * This will have css in producdtion build
+ */
+// import React from 'react';
+// export default () => <div>hello</div>
