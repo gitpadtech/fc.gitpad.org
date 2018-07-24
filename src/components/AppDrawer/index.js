@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Navigation from './Navigation';
+import Link from '../../components/Link';
 
 const styles = theme => ({
   toolbar: {
@@ -22,7 +23,11 @@ const AppDrawer = ({ classes, activePagePath }) =>
   <div>
     <div className={`${classes.toolbar} ${classes.toolbarGutter}`}>
       <Typography variant="title">
-        Finance Chart
+        <Link
+          to="/"
+        >
+          Finance Chart
+        </Link>
       </Typography>
     </div>
     <Divider />

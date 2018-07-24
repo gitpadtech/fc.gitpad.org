@@ -1,9 +1,8 @@
 /**
- * This will lost all css in production build
+ * This will lose all css in production build
  */
 
 import React from 'react';
-import { graphql } from 'gatsby'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DefaultLayout from '../components/layouts/default-layout';

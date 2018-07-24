@@ -34,11 +34,12 @@ const styles = theme => ({
   },
   link: {
     textDecoration: 'none',
+    display: 'block',
+    width: '100%',
   },
   active: {
     '& button': {
       color: theme.palette.primary.main,
-      fontWeight: theme.typography.fontWeightMedium,
     }
   },
 });
@@ -90,8 +91,9 @@ class AppDrawerNavItem extends React.Component {
         >
           <GatsbyLink
             to={href}
-            className={classes.link}
-            activeClassName={classes.active}
+            className={classNames(classes.link, {
+              [classes.active]: active
+            })}
           >
             <Button
               className={classNames(classes.buttonLeaf, `depth-${depth}`)}

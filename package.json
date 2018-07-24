@@ -2,14 +2,14 @@
   "name": "finance-chart.gitpad.org",
   "version": "0.0.1",
   "dependencies": {
-    "@material-ui/core": "^1.4.0",
+    "@material-ui/core": "^1.4.1",
     "@material-ui/icons": "^1.1.0",
     "classnames": "^2.2.6",
-    "gatsby": "^2.0.0-beta.48",
-    "gatsby-cli": "^2.0.0-beta.6",
-    "gatsby-link": "^2.0.0-beta.5",
-    "gatsby-source-filesystem": "^2.0.1-beta.9",
-    "gatsby-transformer-remark": "^2.1.1-beta.4",
+    "gatsby": "^1.9.277",
+    "gatsby-cli": "^1.1.58",
+    "gatsby-link": "^1.6.46",
+    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-remark": "^1.7.44",
     "jss": "^9.8.7",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "serve": "gatsby serve"
   }
 }
