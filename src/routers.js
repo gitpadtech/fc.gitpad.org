@@ -4,10 +4,15 @@ export default [
     children: [
       {
         pathname: '/getting-started/introduction',
-      },
+      }
+    ],
+  },
+  {
+    pathname: '/demos',
+    children: [
       {
-        pathname: '/getting-started/usage',
-      },
+        pathname: '/demos/time-share-chart/basic',
+      }
     ],
   },
   {

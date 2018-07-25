@@ -132,5 +132,14 @@ ResponsiveDrawer.propTypes = {
   activePagePath: PropTypes.string.isRequired,
 };
 
-export default withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
+const Layout = withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
 
+export default (El) => props => {
+  return (
+    <Layout
+      activePagePath={props.location.pathname}
+    >
+      <El {...props} />
+    </Layout>
+  )
+}

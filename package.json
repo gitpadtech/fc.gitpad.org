@@ -4,13 +4,18 @@
   "dependencies": {
     "@material-ui/core": "^1.4.1",
     "@material-ui/icons": "^1.1.0",
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
+    "clipboard-copy": "^2.0.0",
+    "codesandbox": "^1.2.15",
     "gatsby": "^1.9.277",
     "gatsby-cli": "^1.1.58",
     "gatsby-link": "^1.6.46",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
     "jss": "^9.8.7",
+    "marked": "^0.4.0",
+    "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -20,5 +25,10 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
+  },
+  "devDependencies": {
+    "babel-plugin-preval": "^3.0.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "raw-loader": "^0.5.1"
   }
 }

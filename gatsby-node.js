@@ -40,4 +40,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       });
     })
   })
-}
+};
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  config.loader("md", {
+    test: /\.md$/,
+    loader: "raw-loader",
+  });
+};
