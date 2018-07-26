@@ -45,7 +45,7 @@ function MarkdownDocs(props) {
     if (headers.filename) {
       markdownLocation = headers.filename;
     } else {
-      markdownLocation = `/docs/src/pages${markdownLocation}.md`;
+      markdownLocation = `/src/docs/pages${markdownLocation}.md`;
     }
   }
   return (

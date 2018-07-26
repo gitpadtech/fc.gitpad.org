@@ -11,7 +11,7 @@ export default [
     pathname: '/demos',
     children: [
       {
-        pathname: '/demos/time-share-chart/basic',
+        pathname: '/demos/time-share-chart',
       }
     ],
   },
