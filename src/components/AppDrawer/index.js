@@ -19,7 +19,7 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
   },
 });
-const AppDrawer = ({ classes, activePagePath }) =>
+const AppDrawer = ({ classes, ...rest }) =>
   <div>
     <div className={`${classes.toolbar} ${classes.toolbarGutter}`}>
       <Typography variant="title">
@@ -31,11 +31,10 @@ const AppDrawer = ({ classes, activePagePath }) =>
       </Typography>
     </div>
     <Divider />
-    <Navigation activePagePath={activePagePath} />
+    <Navigation {...rest} />
   </div>;
 
 AppDrawer.propTypes = {
-  activePagePath: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(AppDrawer);

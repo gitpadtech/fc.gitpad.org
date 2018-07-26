@@ -28,18 +28,30 @@ const styles = theme => ({
 });
 
 const demoRegexp = /^"demo": "(.*)"/;
-const SOURCE_CODE_ROOT_URL = 'https://github.com/mui-org/material-ui/tree/master';
+const SOURCE_CODE_ROOT_URL = 'https://github.com/gitpadtech/finance-chart.gitpad.org/tree/master';
 
-function MarkdownDocs(props, context) {
-  const { classes, demos, markdown } = props;
+function MarkdownDocs(props) {
+  const { classes, demos, markdown, markdownLocation: markdownLocationProp } = props;
   const contents = getContents(markdown);
   const headers = getHeaders(markdown);
 
+  let markdownLocation = markdownLocationProp || props.location.pathname;
 
+  if (!markdownLocationProp) {
+    const token = markdownLocation.replace(/\/$/, '').split('/');
+    token.push(token[token.length - 1]);
+    markdownLocation = token.join('/');
+
+    if (headers.filename) {
+      markdownLocation = headers.filename;
+    } else {
+      markdownLocation = `/docs/src/pages${markdownLocation}.md`;
+    }
+  }
   return (
     <AppContent className={classes.root}>
       <div className={classes.header}>
-        <Button component="a" href={`${SOURCE_CODE_ROOT_URL}`}>
+        <Button component="a" href={`${SOURCE_CODE_ROOT_URL}${markdownLocation}`}>
           {'Edit this page'}
         </Button>
       </div>
@@ -58,7 +70,7 @@ function MarkdownDocs(props, context) {
               raw={demos[name].raw}
               index={index}
               demoOptions={demoOptions}
-              githubLocation={`${SOURCE_CODE_ROOT_URL}/docs/src/${name}`}
+              githubLocation={`${SOURCE_CODE_ROOT_URL}/src/docs/${name}`}
             />
           );
         }
@@ -76,6 +88,7 @@ MarkdownDocs.propTypes = {
   // You can define the direction location of the markdown file.
   // Otherwise, we try to determine it with an heuristic.
   markdownLocation: PropTypes.string,
+  location: PropTypes.object.isRequired,
 };
 
 MarkdownDocs.defaultProps = {

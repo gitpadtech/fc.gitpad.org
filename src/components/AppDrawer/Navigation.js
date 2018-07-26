@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router'
 import List from '@material-ui/core/List';
 import AppDrawerNavItem from './AppDrawerNavItem';
 import { page2Title } from '../../utils/helper';
@@ -56,8 +57,8 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { classes, activePagePath } = this.props;
-
+    const { classes, location } = this.props;
+    const activePagePath = location.pathname;
     return (
       <div className={classes.root}>
         <List
@@ -74,7 +75,6 @@ class Navigation extends React.Component {
 
 Navigation.propTypes = {
   classes: PropTypes.object.isRequired,
-  activePagePath: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(Navigation);
+export default withRouter(withStyles(styles)(Navigation));

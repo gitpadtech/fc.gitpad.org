@@ -2,6 +2,7 @@
   "name": "finance-chart.gitpad.org",
   "version": "0.0.1",
   "dependencies": {
+    "@gitpad/finance-chart": "^1.0.0-alpha.12",
     "@material-ui/core": "^1.4.1",
     "@material-ui/icons": "^1.1.0",
     "babel-polyfill": "^6.26.0",

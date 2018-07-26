@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
+import { withRouter } from 'react-router'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,6 +16,8 @@ import AppDrawer from '../AppDrawer';
 import { page2Title } from '../../utils/helper';
 
 const drawerWidth = 240;
+
+const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 const styles = theme => ({
   '@global': {
@@ -31,23 +36,22 @@ const styles = theme => ({
     display: 'flex',
     width: '100%',
   },
-  appBar: {
-    // position: 'absolute',
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('md')]: {
+  appBarHome: {
+    boxShadow: 'none',
+  },
+  appBarShift: {
+    [theme.breakpoints.up('lg')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
   },
   navIconHide: {
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
   },
-  drawerPaper: {
+  paper: {
     width: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      position: 'relative',
-    },
+    backgroundColor: theme.palette.background.paper,
   },
   content: {
     flexGrow: 1,
@@ -61,6 +65,11 @@ const styles = theme => ({
       paddingTop: 64,
     },
   },
+  contentShift: {
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: drawerWidth,
+    }
+  }
 });
 
 class ResponsiveDrawer extends React.Component {
@@ -72,53 +81,68 @@ class ResponsiveDrawer extends React.Component {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
 
+  handleDrawerOpen = () => {
+    this.setState({ mobileOpen: true });
+  };
+
+  handleDrawerClose = () => {
+    this.setState({ mobileOpen: false });
+  };
+
   render() {
-    const { classes, theme, activePagePath } = this.props;
+    const { classes, location } = this.props;
+    const isHome = location.pathname === '/';
+    const { mobileOpen } = this.state;
     return (
       <div className={classes.root}>
-        <AppBar className={classes.appBar}>
+        <AppBar className={isHome ? classes.appBarHome : classes.appBarShift}>
           <Toolbar>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerToggle}
-              className={classes.navIconHide}
+              className={ isHome ? '' : classes.navIconHide}
             >
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" noWrap>
-              {page2Title(activePagePath)}
+              {page2Title(location.pathname)}
             </Typography>
           </Toolbar>
         </AppBar>
-        <Hidden mdUp>
-          <Drawer
+        <Hidden lgUp={!isHome}>
+          <SwipeableDrawer
+            classes={{
+              paper: classNames(classes.paper, 'algolia-drawer'),
+            }}
+            disableBackdropTransition={!iOS}
             variant="temporary"
-            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-            open={this.state.mobileOpen}
-            onClose={this.handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
+            open={mobileOpen}
+            onOpen={this.handleDrawerOpen}
+            onClose={this.handleDrawerClose}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             }}
           >
-            <AppDrawer activePagePath={activePagePath} />
-          </Drawer>
+            <AppDrawer />
+          </SwipeableDrawer>
         </Hidden>
-        <Hidden smDown implementation="css">
-          <Drawer
-            variant="permanent"
-            open
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <AppDrawer activePagePath={activePagePath} />
-          </Drawer>
-        </Hidden>
-        <main className={classes.content}>
+        {isHome ? null : (
+          <Hidden mdDown implementation="css">
+            <Drawer
+              classes={{
+                paper: classes.paper,
+              }}
+              variant="permanent"
+              open
+            >
+              <AppDrawer />
+            </Drawer>
+          </Hidden>
+        )}
+        <main className={classNames(classes.content, {
+          [classes.contentShift]: !isHome
+        })}>
           {this.props.children}
         </main>
       </div>
@@ -129,17 +153,6 @@ class ResponsiveDrawer extends React.Component {
 ResponsiveDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  activePagePath: PropTypes.string.isRequired,
 };
 
-const Layout = withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer));
-
-export default (El) => props => {
-  return (
-    <Layout
-      activePagePath={props.location.pathname}
-    >
-      <El {...props} />
-    </Layout>
-  )
-}
+export default withRouter(withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer)));
