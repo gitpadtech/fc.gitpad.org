@@ -56,7 +56,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing.unit,
     paddingTop: 56,
     [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
       paddingTop: 48,
@@ -72,7 +72,7 @@ const styles = theme => ({
   }
 });
 
-class ResponsiveDrawer extends React.Component {
+class DefaultLayout extends React.Component {
   state = {
     mobileOpen: false,
   };
@@ -150,9 +150,9 @@ class ResponsiveDrawer extends React.Component {
   }
 }
 
-ResponsiveDrawer.propTypes = {
+DefaultLayout.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withRouter(withRoot(withStyles(styles, { withTheme: true })(ResponsiveDrawer)));
+export default withRouter(withRoot(withStyles(styles, { withTheme: true })(DefaultLayout)));

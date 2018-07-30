@@ -21,7 +21,7 @@ export function getDependencies(raw) {
     'react-dom': 'latest',
     react: 'latest',
   };
-  const re = /^import\s.*\sfrom\s+'([^']+)'/gm;
+  const re = /import\s(?:.|[\r\n])*\sfrom\s+['"]([^']+)['"]/gm;
   let m;
   // eslint-disable-next-line no-cond-assign
   while ((m = re.exec(raw))) {
@@ -29,6 +29,7 @@ export function getDependencies(raw) {
     const name = m[1].charAt(0) === '@' ? m[1].split('/', 2).join('/') : m[1].split('/', 1)[0];
     deps[name] = deps[name] || 'latest';
   }
+  console.log(raw);
   return deps;
 }
 
@@ -82,20 +83,19 @@ const styles = theme => ({
       marginRight: 0,
     },
   },
-  demo: theme.mixins.gutters({
+  demo: {
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
     display: 'flex',
     justifyContent: 'center',
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
     [theme.breakpoints.up('sm')]: {
-      paddingLeft: theme.spacing.unit * 3,
-      paddingRight: theme.spacing.unit * 3,
       paddingTop: theme.spacing.unit * 6,
-      paddingBottom: theme.spacing.unit * 3,
     },
-  }),
+  },
   demoHiddenHeader: {
     paddingTop: theme.spacing.unit * 2,
     [theme.breakpoints.up('sm')]: {

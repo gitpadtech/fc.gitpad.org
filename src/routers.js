@@ -1,17 +1,12 @@
 export default [
   {
-    pathname: '/getting-started',
-    children: [
-      {
-        pathname: '/getting-started/introduction',
-      }
-    ],
-  },
-  {
     pathname: '/demos',
     children: [
       {
-        pathname: '/demos/time-share-chart',
+        pathname: '/demos/time-series',
+      },
+      {
+        pathname: '/demos/candle-stick'
       }
     ],
   },

@@ -1,19 +1,19 @@
 import React from 'react';
 import DefaultLayout from '../../components/layouts/DefaultLayout';
 import MarkdownDocs from '../../components/MarkdownDocs';
-import doc from '../../docs/pages/demos/time-share-chart/time-share-chart.md';
-import BasicComponent from '../../docs/pages/demos/time-share-chart/basic';
+import doc from '../../docs/pages/demos/candle-stick/candle-stick.md';
+import BasicComponent from '../../docs/pages/demos/candle-stick/basic';
 
 export default (props) => (
   <DefaultLayout>
     <MarkdownDocs
       markdown={doc}
       demos={{
-        'pages/demo/time-share-chart/basic.js': {
+        'pages/demo/candle-stick/basic.js': {
           js: BasicComponent,
           raw: preval`
   module.exports = require('fs')
-    .readFileSync(require.resolve('../../docs/pages/demos/time-share-chart/basic.js'), 'utf8')
+    .readFileSync(require.resolve('../../docs/pages/demos/candle-stick/basic.js'), 'utf8')
         `}
       }}
       {...props}
