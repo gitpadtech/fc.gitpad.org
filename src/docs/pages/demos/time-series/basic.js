@@ -17,7 +17,7 @@ class TimeSeriesBasic extends PureComponent {
       tradeTimes: [
         {
           open: 90,
-          close: 480,
+          close: 481,
         }
       ],
       mainDrawer: {

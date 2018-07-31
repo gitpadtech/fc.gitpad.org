@@ -7,20 +7,33 @@ import {
   formateDate,
 } from '@gitpad/finance-chart';
 
+const shortenVolume = (v) => {
+  const scaleV = v / 100;
+  if (scaleV > 10000) {
+    return `${(scaleV / 10000).toFixed(2)}万手`;
+  }
+  return `${scaleV.toFixed(2)}手`;
+};
+
 class TimeSeriesBasic extends PureComponent {
   rootNode = null
   chart = null
   componentDidMount() {
+    const lastPrice = 15.2;
     this.chart = new Chart({
       theme: ChartWhiteTheme,
       selector: this.rootNode,
-      lastPrice: 15,
+      lastPrice,
       data: MOCK_DATA,
       tradeTimes: [
         {
-          open: 90,
-          close: 480,
-        }
+            open: 90,
+            close: 210,
+        },
+        {
+            open: 300,
+            close: 421,
+        },
       ],
       mainDrawer: {
         constructor: TimeSeriesDrawer
@@ -32,20 +45,29 @@ class TimeSeriesBasic extends PureComponent {
       ],
       detailProvider: (i, data) => {
         const date = new Date();
-        date.setTime(data[i].time * 60 * 1000);
+        const current = data[i];
+        date.setTime(current.time * 60 * 1000);
+        const riseColor = '#F55559';
+        const fallColor = '#7DCE8D';
+
         return {
           title: formateDate(date, 'HH:mm'),
           tables: [
             {
-              color: 'green',
-              name: '开盘',
-              value: '10353',
+              color: current.price > lastPrice ? riseColor : fallColor,
+              name: '价格',
+              value: current.price.toFixed(2),
+            },
+            {
+              color: current.avg > lastPrice ? riseColor : fallColor,
+              name: '均价',
+              value: current.avg.toFixed(2),
             },
             {
               color: '#7B7E8D',
-              name: '开盘',
-              value: '10353',
-            },
+              name: '成交量',
+              value: `${shortenVolume(current.volume)}`
+            }
           ],
         };
       },

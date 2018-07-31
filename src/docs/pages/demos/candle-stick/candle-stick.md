@@ -8,4 +8,4 @@ What is Candle Stick ?
 
 ## Candle Stick Basic
 
-{{"demo": "pages/demo/candle-stick/basic.js"}}
+{{"demo": "pages/demos/candle-stick/basic.js"}}

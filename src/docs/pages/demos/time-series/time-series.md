@@ -2,14 +2,21 @@
 title: Time Series
 ---
 
-# Time Series
+# 分时图
 
-Time Series chart is used to display realtime price of finance product.
+分时图用于实时显示当日实时行情变化趋势
 
-## Create time series chart with empty data
+## 空数据分时图
 
-{{"demo": "pages/demo/time-series/basic.js"}}
+{{"demo": "pages/demos/time-series/basic.js"}}
 
-## Create time series chart with mock data
+## 模拟数据分时图
 
-{{"demo": "pages/demo/time-series/mock.js"}}
+{{"demo": "pages/demos/time-series/mock.js"}}
+
+
+## 苹果公司(AAPL)行情
+
+数据由[iextrading.com](https://iextrading.com)提供，与实时行情有较大差异，仅供参考
+
+{{"demo": "pages/demos/time-series/realtime.js"}}

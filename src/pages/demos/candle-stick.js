@@ -9,7 +9,7 @@ export default (props) => (
     <MarkdownDocs
       markdown={doc}
       demos={{
-        'pages/demo/candle-stick/basic.js': {
+        'pages/demos/candle-stick/basic.js': {
           js: BasicComponent,
           raw: preval`
   module.exports = require('fs')
