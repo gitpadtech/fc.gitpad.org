@@ -97,7 +97,6 @@ class RealTimeTimeSeries extends PureComponent {
         this.chart.setLastPrice(quote.previousClose);
         // clear min value cache by using force clean, because default value of lastPrice is 0.01
         this.chart.setData(res, true);
-        console.log(res);
       });
   }
   render() {

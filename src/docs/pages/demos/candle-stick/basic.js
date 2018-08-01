@@ -7,7 +7,7 @@ import {
   createYAxisPlugin,
 } from '@gitpad/finance-chart';
 
-class CandleStickBasic extends PureComponent {
+class CandleStickChart extends PureComponent {
   rootNode = null
   chart = null
   componentDidMount() {
@@ -44,4 +44,4 @@ class CandleStickBasic extends PureComponent {
   }
 }
 
-export default CandleStickBasic;
+export default CandleStickChart;

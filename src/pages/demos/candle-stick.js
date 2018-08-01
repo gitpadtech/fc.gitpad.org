@@ -4,6 +4,7 @@ import MarkdownDocs from '../../components/MarkdownDocs';
 import doc from '../../docs/pages/demos/candle-stick/candle-stick.md';
 import BasicDemo from '../../docs/pages/demos/candle-stick/basic';
 import MockDemo from '../../docs/pages/demos/candle-stick/mock';
+import LoadMoreDemo from '../../docs/pages/demos/candle-stick/loadMore';
 
 export default (props) => (
   <DefaultLayout>
@@ -21,6 +22,12 @@ export default (props) => (
           raw: preval`
   module.exports = require('fs')
     .readFileSync(require.resolve('../../docs/pages/demos/candle-stick/mock.js'), 'utf8')
+        `},
+        'pages/demos/candle-stick/loadMore.js': {
+          js: LoadMoreDemo,
+          raw: preval`
+  module.exports = require('fs')
+    .readFileSync(require.resolve('../../docs/pages/demos/candle-stick/loadMore.js'), 'utf8')
         `}
       }}
       {...props}
