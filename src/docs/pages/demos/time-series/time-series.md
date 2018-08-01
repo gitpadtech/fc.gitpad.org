@@ -15,8 +15,8 @@ title: Time Series
 {{"demo": "pages/demos/time-series/mock.js"}}
 
 
-## 苹果公司(AAPL)行情
+## 苹果公司(AAPL)iextrading行情
 
-数据由[iextrading.com](https://iextrading.com)提供，与实时行情有较大差异，仅供参考
+数据由[iextrading.com](https://iextrading.com)提供，非正常美股实盘数据
 
 {{"demo": "pages/demos/time-series/realtime.js"}}

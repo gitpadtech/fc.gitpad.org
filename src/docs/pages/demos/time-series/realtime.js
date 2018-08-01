@@ -48,16 +48,20 @@ class RealTimeTimeSeries extends PureComponent {
         const fallColor = '#7DCE8D';
         const lastPrice = this.lastPrice;
 
+        const autoColor = (key) => {
+          return data[i][key] > lastPrice ? riseColor : fallColor;
+        };
+
         return {
           title: current.time,
           tables: [
             {
-              color: current.price > lastPrice ? riseColor : fallColor,
+              color: autoColor('price'),
               name: '价格',
               value: current.price.toFixed(2),
             },
             {
-              color: current.avg > lastPrice ? riseColor : fallColor,
+              color: autoColor('avg'),
               name: '均价',
               value: current.avg.toFixed(2),
             },

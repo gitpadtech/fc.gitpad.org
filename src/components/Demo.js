@@ -19,6 +19,7 @@ export function getDependencies(raw) {
   const deps = {
     '@material-ui/core': 'latest',
     'react-dom': 'latest',
+    '@gitpad/finance-chart': 'latest',
     react: 'latest',
   };
   const re = /import\s(?:.|[\r\n])*\sfrom\s+['"]([^']+)['"]/gm;
@@ -29,7 +30,7 @@ export function getDependencies(raw) {
     const name = m[1].charAt(0) === '@' ? m[1].split('/', 2).join('/') : m[1].split('/', 1)[0];
     deps[name] = deps[name] || 'latest';
   }
-  console.log(raw);
+
   return deps;
 }
 
@@ -44,7 +45,7 @@ function addHiddenInput(form, name, value) {
 
 function getDemo(props) {
   return {
-    title: 'Material demo',
+    title: 'finance chart demo',
     description: props.githubLocation,
     dependencies: getDependencies(props.raw),
     files: {

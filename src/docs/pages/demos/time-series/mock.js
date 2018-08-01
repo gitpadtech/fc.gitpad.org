@@ -20,6 +20,7 @@ class TimeSeriesBasic extends PureComponent {
   chart = null
   componentDidMount() {
     const lastPrice = 15.2;
+
     this.chart = new Chart({
       theme: ChartWhiteTheme,
       selector: this.rootNode,
@@ -47,19 +48,23 @@ class TimeSeriesBasic extends PureComponent {
         const date = new Date();
         const current = data[i];
         date.setTime(current.time * 60 * 1000);
+
         const riseColor = '#F55559';
         const fallColor = '#7DCE8D';
-
+        
+        const autoColor = (key) => {
+          return data[i][key] > lastPrice ? riseColor : fallColor;
+        };
         return {
           title: formateDate(date, 'HH:mm'),
           tables: [
             {
-              color: current.price > lastPrice ? riseColor : fallColor,
+              color: autoColor('price'),
               name: '价格',
               value: current.price.toFixed(2),
             },
             {
-              color: current.avg > lastPrice ? riseColor : fallColor,
+              color: autoColor('avg'),
               name: '均价',
               value: current.avg.toFixed(2),
             },

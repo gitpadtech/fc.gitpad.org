@@ -9,9 +9,9 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@gitpad/finance-chart@^1.0.0-alpha.14":
-  version "1.0.0-alpha.14"
-  resolved "https://registry.yarnpkg.com/@gitpad/finance-chart/-/finance-chart-1.0.0-alpha.14.tgz#24db70adf0a56be2a899a8d5d7c5cb2cf90d8b18"
+"@gitpad/finance-chart@^1.0.0-alpha.19":
+  version "1.0.0-alpha.19"
+  resolved "https://registry.yarnpkg.com/@gitpad/finance-chart/-/finance-chart-1.0.0-alpha.19.tgz#25a0de1948effada167bd6a59454a5dc6873e3f4"
   dependencies:
     "@types/d3-array" "^1.2.1"
     "@types/d3-scale" "^2.0.0"
@@ -23,6 +23,8 @@
     d3-shape "^1.2.0"
     detect-it "^3.0.5"
     husky "^0.14.3"
+    jss "^9.8.7"
+    jss-preset-default "^4.5.0"
     lodash.clamp "^4.0.3"
     lodash.uniq "^4.5.0"
 
@@ -5261,7 +5263,7 @@ jss-nested@^6.0.1:
   dependencies:
     warning "^3.0.0"
 
-jss-preset-default@^4.3.0:
+jss-preset-default@^4.3.0, jss-preset-default@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/jss-preset-default/-/jss-preset-default-4.5.0.tgz#d3a457012ccd7a551312014e394c23c4b301cadd"
   dependencies:
