@@ -11,7 +11,7 @@ import {
 class CandleStickChart extends PureComponent {
   rootNode = null
   /**
-   * @type {Chart} chart instant
+   * @type {Chart} chart instance
    */
   chart = null
   componentDidMount() {

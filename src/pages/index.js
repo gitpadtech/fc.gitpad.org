@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import DefaultLayout from '../components/layouts/DefaultLayout';
@@ -8,8 +7,16 @@ import DefaultLayout from '../components/layouts/DefaultLayout';
 const styles = theme => ({
   root: {
     textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
   },
+  logo: {
+    width: 160,
+    height: 160,
+    display: 'block',
+    margin: '20px auto',
+  },
+  title: {
+    color: '#473780',
+  }
 });
 
 class Index extends React.Component {
@@ -18,15 +25,10 @@ class Index extends React.Component {
     return (
       <DefaultLayout>
         <div className={classes.root}>
-          <Typography variant="display1" gutterBottom>
-            Material-UI
+          <img className={classes.logo} src="./images/logo.png" />
+          <Typography variant="display1" gutterBottom className={classes.title}>
+            Finance Chart
           </Typography>
-          <Typography variant="subheading" gutterBottom>
-            example project
-          </Typography>
-          <Button variant="contained" color="secondary">
-            Home Page
-          </Button>
         </div>
       </DefaultLayout>
     );
