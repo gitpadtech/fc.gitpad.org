@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DefaultLayout from '../components/layouts/DefaultLayout';
 import AppContent from '../components/AppContent';
+import withRoot from '../withRoot';
 
 const styles = theme => ({
 });
@@ -28,7 +29,7 @@ Article.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Article);
+export default withRoot(withStyles(styles)(Article));
 
 export const articleQuery = graphql`
   query articleQuery($slug: String!) {

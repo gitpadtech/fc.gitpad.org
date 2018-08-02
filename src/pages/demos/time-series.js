@@ -5,8 +5,9 @@ import doc from '../../docs/pages/demos/time-series/time-series.md';
 import BasicDemo from '../../docs/pages/demos/time-series/basic';
 import MockDemo from '../../docs/pages/demos/time-series/mock';
 import RealtimeDemo from '../../docs/pages/demos/time-series/realtime';
+import withRoot from '../../withRoot'
 
-export default (props) => (
+export default withRoot((props) => (
   <DefaultLayout>
     <MarkdownDocs
       markdown={doc}
@@ -33,4 +34,4 @@ export default (props) => (
       {...props}
     />
   </DefaultLayout>
-);
+));

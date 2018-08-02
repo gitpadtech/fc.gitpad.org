@@ -2,9 +2,8 @@
 
 import { SheetsRegistry } from 'jss';
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
-import pink from '@material-ui/core/colors/pink';
-import { darken } from '@material-ui/core/styles/colorManipulator';
+import teal from '@material-ui/core/colors/teal';
+import deepPurple from '@material-ui/core/colors/deepPurple';
 
 function getTheme(uiTheme) {
   const theme = createMuiTheme({
@@ -23,11 +22,8 @@ function getTheme(uiTheme) {
 const theme = getTheme({
   paletteType: 'light',
   paletteColors: {
-    primary: blue,
-    secondary: {
-      // Darken so we reach the AA contrast ratio level.
-      main: darken(pink.A400, 0.08),
-    },
+    primary: teal,
+    secondary: deepPurple,
   },
 });
 

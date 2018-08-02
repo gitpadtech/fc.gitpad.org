@@ -155,4 +155,4 @@ DefaultLayout.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default withRouter(withRoot(withStyles(styles, { withTheme: true })(DefaultLayout)));
+export default withRouter(withStyles(styles, { withTheme: true })(DefaultLayout));

@@ -5,8 +5,9 @@ import doc from '../../docs/pages/demos/candle-stick/candle-stick.md';
 import BasicDemo from '../../docs/pages/demos/candle-stick/basic';
 import MockDemo from '../../docs/pages/demos/candle-stick/mock';
 import LoadMoreDemo from '../../docs/pages/demos/candle-stick/loadMore';
+import withRoot from '../../withRoot';
 
-export default (props) => (
+export default withRoot((props) => (
   <DefaultLayout>
     <MarkdownDocs
       markdown={doc}
@@ -33,4 +34,4 @@ export default (props) => (
       {...props}
     />
   </DefaultLayout>
-);
+));
