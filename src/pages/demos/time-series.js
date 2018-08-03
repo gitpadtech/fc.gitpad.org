@@ -28,7 +28,7 @@ export default withRoot((props) => (
           js: RealtimeDemo,
           raw: preval`
   module.exports = require('fs')
-    .readFileSync(require.resolve('../../docs/pages/demos/time-series/mock.js'), 'utf8')
+    .readFileSync(require.resolve('../../docs/pages/demos/time-series/realtime.js'), 'utf8')
         `}
       }}
       {...props}
