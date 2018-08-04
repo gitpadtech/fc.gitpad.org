@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import DefaultLayout from '../components/layouts/DefaultLayout';
+import HomeSteps from '../components/HomeSteps';
 import withRoot from '../withRoot';
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
+    padding: theme.spacing.unit * 2,
   },
   logo: {
     width: 160,
@@ -20,6 +21,8 @@ const styles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    background: 'white',
+    paddingBottom: theme.spacing.unit * 4,
   },
   title: {
     color: theme.palette.primary.main,
@@ -56,6 +59,7 @@ class Index extends React.Component {
               高性能、易扩展、移动优先
             </Typography>
           </div>
+          <HomeSteps />
         </div>
       </DefaultLayout>
     );

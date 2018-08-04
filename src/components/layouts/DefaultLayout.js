@@ -56,7 +56,6 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit,
     paddingTop: 56,
     [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
       paddingTop: 48,
