@@ -47,7 +47,7 @@ class Index extends React.Component {
           <div className={classes.introduction}>
             <img className={classes.logo} src="./images/logo.png" />
             <Typography variant="display1" gutterBottom className={classes.title}>
-              金融行情图
+              Finance Chart
             </Typography>
             <Typography
               variant="headline"
@@ -56,7 +56,7 @@ class Index extends React.Component {
               gutterBottom
               className={classes.headline}
             >
-              高性能、易扩展、移动优先
+              High performance but with full features
             </Typography>
           </div>
           <HomeSteps />

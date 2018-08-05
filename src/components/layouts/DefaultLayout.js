@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Hidden from '@material-ui/core/Hidden';
 import MenuIcon from '@material-ui/icons/Menu';
-import withRoot from '../../withRoot';
 import AppDrawer from '../AppDrawer';
 import { page2Title } from '../../utils/helper';
 
@@ -39,13 +38,11 @@ const styles = theme => ({
   },
   appBarHome: {
     boxShadow: 'none',
-  },
-  appBarShift: {
     [theme.breakpoints.up('lg')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
   },
-  navIconHide: {
+  nav: {
     [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
@@ -64,12 +61,10 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       paddingTop: 64,
     },
-  },
-  contentShift: {
     [theme.breakpoints.up('lg')]: {
       marginLeft: drawerWidth,
     }
-  }
+  },
 });
 
 class DefaultLayout extends React.Component {
@@ -98,13 +93,13 @@ class DefaultLayout extends React.Component {
         <Helmet>
           <title>{title}</title>
         </Helmet>
-        <AppBar className={isHome ? classes.appBarHome : classes.appBarShift}>
+        <AppBar className={classes.appBarHome}>
           <Toolbar>
             <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerToggle}
-              className={ isHome ? '' : classes.navIconHide}
+              className={classes.nav}
             >
               <MenuIcon />
             </IconButton>
@@ -113,7 +108,7 @@ class DefaultLayout extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Hidden lgUp={!isHome}>
+        <Hidden>
           <SwipeableDrawer
             classes={{
               paper: classNames(classes.paper, 'algolia-drawer'),
@@ -130,22 +125,18 @@ class DefaultLayout extends React.Component {
             <AppDrawer />
           </SwipeableDrawer>
         </Hidden>
-        {isHome ? null : (
-          <Hidden mdDown implementation="css">
-            <Drawer
-              classes={{
-                paper: classes.paper,
-              }}
-              variant="permanent"
-              open
-            >
-              <AppDrawer />
-            </Drawer>
-          </Hidden>
-        )}
-        <main className={classNames(classes.content, {
-          [classes.contentShift]: !isHome
-        })}>
+        <Hidden mdDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.paper,
+            }}
+            variant="permanent"
+            open
+          >
+            <AppDrawer />
+          </Drawer>
+        </Hidden>
+        <main className={classNames(classes.content)}>
           {this.props.children}
         </main>
       </div>
