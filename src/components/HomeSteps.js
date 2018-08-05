@@ -81,11 +81,11 @@ function HomeSteps(props) {
       <div className={classNames(classes.step, classes.leftStep)}>
         <div className={classes.stepTitle}>
           <FileDownloadIcon className={classes.stepIcon} />
-          <Typography variant="title">安装</Typography>
+          <Typography variant="title">Installation</Typography>
         </div>
         <div className={classes.stepBody}>
           <Typography variant="subheading" gutterBottom>
-            从npm安装
+            install with npm
           </Typography>
           <MarkdownElement
             className={classes.markdownElement}
@@ -96,7 +96,7 @@ $ npm install @gitpad/finance-chart
                 `}
           />
           <Typography variant="subheading" gutterBottom>
-            或者使用yarn安装
+            or install with yarn
           </Typography>
           <MarkdownElement
             className={classes.markdownElement}
@@ -111,12 +111,16 @@ $ yarn add @gitpad/finance-chart
       <div className={classes.step}>
         <div className={classes.stepTitle}>
           <BuildIcon className={classes.stepIcon} />
-          <Typography variant="title">使用</Typography>
+          <Typography variant="title">Usage</Typography>
         </div>
         <div className={classes.stepBody}>
           <MarkdownElement
             className={classes.markdownElement}
             text={`
+\`\`\`html
+<div id="quote-chart"></div>
+\`\`\`
+
   \`\`\`jsx
 import { Chart, CandleStickDrawer } from '@gitpad/finance-chart';
 new Chart({
