@@ -1,5 +1,16 @@
 export default [
   {
+    pathname: '/getting-started',
+    children: [
+      {
+        pathname: '/getting-started/installation',
+      },
+      {
+        pathname: '/getting-started/basic',
+      },
+    ]
+  },
+  {
     pathname: '/demos',
     children: [
       {
@@ -7,7 +18,7 @@ export default [
       },
       {
         pathname: '/demos/candle-stick'
-      }
+      },
     ],
   },
   {

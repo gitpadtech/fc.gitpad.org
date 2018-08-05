@@ -107,7 +107,7 @@ const styles = theme => ({
       lineHeight: 1.6,
     },
     '& h1': {
-      ...theme.typography.title,
+      ...theme.typography.display2,
       color: theme.palette.text.secondary,
       margin: '32px 0 16px',
     },

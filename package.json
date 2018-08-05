@@ -5,6 +5,7 @@
     "@gitpad/finance-chart": "^1.0.0-alpha.19",
     "@material-ui/core": "^1.4.1",
     "@material-ui/icons": "^1.1.0",
+    "add": "^2.0.6",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "clipboard-copy": "^2.0.0",
@@ -21,8 +22,10 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.3.4",
-    "react-jss": "^8.6.1"
+    "react-jss": "^8.6.1",
+    "yarn": "^1.9.4"
   },
   "scripts": {
     "start": "yarn clear:babel-cache && gatsby develop",

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Helmet } from "react-helmet";
 import classNames from 'classnames';
 import { withRouter } from 'react-router'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -89,11 +90,14 @@ class DefaultLayout extends React.Component {
   };
 
   render() {
-    const { classes, location } = this.props;
+    const { classes, location, title } = this.props;
     const isHome = location.pathname === '/';
     const { mobileOpen } = this.state;
     return (
       <div className={classes.root}>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
         <AppBar className={isHome ? classes.appBarHome : classes.appBarShift}>
           <Toolbar>
             <IconButton
@@ -152,6 +156,7 @@ class DefaultLayout extends React.Component {
 DefaultLayout.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  title: PropTypes.string,
 };
 
 export default withRouter(withStyles(styles, { withTheme: true })(DefaultLayout));

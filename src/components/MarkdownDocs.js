@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import warning from 'warning';
+import  Helmet from 'react-helmet';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import MarkdownElement from './MarkdownElement';
@@ -50,6 +51,9 @@ function MarkdownDocs(props) {
   }
   return (
     <AppContent className={classes.root}>
+      <Helmet>
+        <title>{headers.title}</title>
+      </Helmet>
       <div className={classes.header}>
         <Button component="a" href={`${SOURCE_CODE_ROOT_URL}${markdownLocation}`}>
           {'Edit this page'}
