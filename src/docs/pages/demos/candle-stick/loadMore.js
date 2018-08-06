@@ -87,6 +87,9 @@ class CandleStickChart extends PureComponent {
 
     this.fetch();
   }
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
   fetch() {
     fetchCandleSticks()
       .then(data => this.chart.setData(data))

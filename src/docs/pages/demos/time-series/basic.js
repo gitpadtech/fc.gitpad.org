@@ -30,6 +30,9 @@ class TimeSeriesBasic extends PureComponent {
       ]
     });
   }
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
   render() {
     return (
       <div

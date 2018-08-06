@@ -21,6 +21,9 @@ class RealTimeTimeSeries extends PureComponent {
   componentDidMount() {
     this.init();
   }
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
   init() {
     this.chart = new Chart({
       theme: ChartWhiteTheme,
@@ -96,7 +99,7 @@ class RealTimeTimeSeries extends PureComponent {
         this.lastPrice = quote.previousClose;
         this.chart.setLastPrice(quote.previousClose);
         // clear min value cache by using force clean, because default value of lastPrice is 0.01
-        this.chart.setData(res, true);
+        !this.chart.destroyed && this.chart.setData(res, true);
       });
   }
   render() {

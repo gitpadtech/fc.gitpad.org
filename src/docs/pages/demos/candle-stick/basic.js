@@ -30,6 +30,9 @@ class CandleStickChart extends PureComponent {
       ]
     });
   }
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
   render() {
     return (
       <div

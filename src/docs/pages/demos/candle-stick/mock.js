@@ -83,6 +83,9 @@ class CandleStickChart extends PureComponent {
 
     this.chart.setData(MOCK_DATA);
   }
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
   render() {
     return (
       <div
