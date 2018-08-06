@@ -13,7 +13,7 @@ class Article extends React.Component {
   render() {
     const { data, classes } = this.props;
     const post = data.markdownRemark;
-    console.log(post.rawMarkdownBody);
+
     return (
       <DefaultLayout
         title={post.frontmatter.title}
