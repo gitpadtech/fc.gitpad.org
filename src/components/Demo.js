@@ -17,12 +17,13 @@ import MarkdownElement from './MarkdownElement';
 
 export function getDependencies(raw) {
   const deps = {
-    '@material-ui/core': 'latest',
-    'react-dom': 'latest',
+    '@material-ui/core': '^1.4.1',
+    'react-dom': '^16.4.1',
+    '@material-ui/icons': '^1.1.0',
     '@gitpad/finance-chart': 'latest',
-    react: 'latest',
+    react: '^16.4.1',
   };
-  const re = /import\s(?:.|[\r\n])*\sfrom\s+['"]([^']+)['"]/gm;
+  const re = /from\s+['"]([^']+)['"]/gm;
   let m;
   // eslint-disable-next-line no-cond-assign
   while ((m = re.exec(raw))) {
@@ -30,7 +31,6 @@ export function getDependencies(raw) {
     const name = m[1].charAt(0) === '@' ? m[1].split('/', 2).join('/') : m[1].split('/', 1)[0];
     deps[name] = deps[name] || 'latest';
   }
-
   return deps;
 }
 
