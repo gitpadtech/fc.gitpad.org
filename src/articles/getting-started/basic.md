@@ -45,7 +45,7 @@ We can add **y axis** and [moving average](https://en.wikipedia.org/wiki/Moving_
 ```js
 // ...
 {
-  mainDrawer: { // ..kdkfdkfkdkfkdfkdfkdkfkdfkdkfkdfkdkfdkfkdkfskdfkdskfkdsfkk
+  mainDrawer: {
     constructor: CandleStickDrawer,
     options: {
       plugins: [
