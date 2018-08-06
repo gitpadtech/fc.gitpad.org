@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import BuildIcon from '@material-ui/icons/Build'; // eslint-disable-line import/no-unresolved
@@ -20,20 +20,6 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       borderRightWidth: 12,
       borderLeftWidth: 12,
-    },
-  },
-  leftStep: {
-    borderBottomWidth: 0,
-    [theme.breakpoints.up('md')]: {
-      borderBottomWidth: 12,
-      borderRightWidth: 0,
-    },
-  },
-  rightStep: {
-    borderTopWidth: 0,
-    [theme.breakpoints.up('md')]: {
-      borderTopWidth: 12,
-      borderLeftWidth: 0,
     },
   },
   stepTitle: {
@@ -59,18 +45,6 @@ const styles = theme => ({
       margin: 0,
     },
   },
-  divider: {
-    marginBottom: theme.spacing.unit * 2,
-  },
-  link: {
-    marginTop: theme.spacing.unit,
-    display: 'block',
-  },
-  img: {
-    maxWidth: 500,
-    width: '100%',
-    height: 'auto',
-  },
 });
 
 function HomeSteps(props) {
@@ -78,7 +52,7 @@ function HomeSteps(props) {
 
   return (
     <div className={classes.root}>
-      <div className={classNames(classes.step, classes.leftStep)}>
+      <Paper className={classes.step} elevation={1}>
         <div className={classes.stepTitle}>
           <FileDownloadIcon className={classes.stepIcon} />
           <Typography variant="title">Installation</Typography>
@@ -107,8 +81,8 @@ $ yarn add @gitpad/finance-chart
                 `}
           />
         </div>
-      </div>
-      <div className={classes.step}>
+      </Paper>
+      <Paper className={classes.step} elevation={1}>
         <div className={classes.stepTitle}>
           <BuildIcon className={classes.stepIcon} />
           <Typography variant="title">Usage</Typography>
@@ -134,7 +108,7 @@ new Chart({
                 `}
           />
         </div>
-      </div>
+      </Paper>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import DefaultLayout from '../components/layouts/DefaultLayout';
 import HomeSteps from '../components/HomeSteps';
@@ -44,7 +45,7 @@ class Index extends React.Component {
     return (
       <DefaultLayout>
         <div className={classes.root}>
-          <div className={classes.introduction}>
+          <Paper className={classes.introduction} elevation={1}>
             <img className={classes.logo} src="./images/logo.png" />
             <Typography variant="display1" gutterBottom className={classes.title}>
               Finance Chart
@@ -56,9 +57,9 @@ class Index extends React.Component {
               gutterBottom
               className={classes.headline}
             >
-              High performance but with full features
+              High performance yet full features
             </Typography>
-          </div>
+          </Paper>
           <HomeSteps />
         </div>
       </DefaultLayout>

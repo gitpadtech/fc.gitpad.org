@@ -47,7 +47,7 @@ const INDICATORS = [
   'DMS',
 ];
 
-const styles = theme = ({
+const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
