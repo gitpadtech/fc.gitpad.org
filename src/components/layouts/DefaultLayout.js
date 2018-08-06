@@ -33,7 +33,6 @@ const styles = theme => ({
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
-    display: 'flex',
     width: '100%',
   },
   appBarHome: {
