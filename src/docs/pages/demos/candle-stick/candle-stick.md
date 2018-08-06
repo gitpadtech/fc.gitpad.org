@@ -2,22 +2,18 @@
 title: Candle Stick
 ---
 
-# K线图
-
-什么是K线图?
-
-## 空白K线图
+## Empty Candle stick
 
 {{"demo": "pages/demos/candle-stick/basic.js"}}
 
-## 模拟数据K线图
-
-配置参数: `count: 50`后，界面上显示最后50项数据，其余数据可以通过滚动查看(只有鼠标的设备，用鼠标拖拽滚动, 其余设备，用手指拖拽图表滚动)
+## Candle stick with mock data
 
 {{"demo": "pages/demos/candle-stick/mock.js"}}
 
-## 滑动加载更多数据
-
-模拟滑动加载更多数据
+## Load more data by dragging to the edge
 
 {{"demo": "pages/demos/candle-stick/loadMore.js"}}
+
+## Indicators
+
+{{"demo": "pages/demos/candle-stick/indicators.js"}}

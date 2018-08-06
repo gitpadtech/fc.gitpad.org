@@ -45,8 +45,7 @@ class CandleStickChart extends PureComponent {
           5: '周五',
           6: '周六',
         };
-        const date = new Date(data[i].time.replace(/-/g, '/'));
- // fix error on safari
+        const date = new Date(data[i].time.replace(/-/g, '/')); // fix error on safari
         const riseColor = '#F55559';
         const fallColor = '#7DCE8D';
 

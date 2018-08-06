@@ -11,17 +11,6 @@ export default [
     ]
   },
   {
-    pathname: '/guides',
-    children: [
-      {
-        pathname: '/guides/time-series',
-      },
-      {
-        pathname: '/guides/candle-stick',
-      },
-    ]
-  },
-  {
     pathname: '/demos',
     children: [
       {

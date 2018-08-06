@@ -2,7 +2,7 @@
 title: Basic
 ---
 
-## Why this library exist ?
+## Why ?
 
 Chart often use to display realtime price and historical data in finance industry, but there is no pratical library on HTML5 platform. So, I want to make life easy...
 
@@ -29,7 +29,7 @@ new Chart({
 There is two drawers for main area so far.
 
 * **CandleStickDrawer**: Painting candle stick chart
-* **TimeSeriesDrawer**: Painting Time Series Chart
+* **TimeSeriesDrawer**: Painting time series Chart
 
 There is two drawers for auxiliary area too.
 
@@ -40,7 +40,7 @@ Even if **TimeSeriesVolumeDrawer** and **CandleStickVolumeDrawer** are similar b
 
 you can extend or building a brand new **main drawer** and **auxiliary drawer** the  by using plugin.
 
-We can add **y axis** and [moving average](https://en.wikipedia.org/wiki/Moving_average) indicator to main drawer like this:
+Adding **y axis** and [moving average](https://en.wikipedia.org/wiki/Moving_average) indicator to main drawer:
 
 ```js
 // ...
@@ -77,7 +77,7 @@ We can add **y axis** and [moving average](https://en.wikipedia.org/wiki/Moving_
 ```
 
 
-We can create a [MACD](https://en.wikipedia.org/wiki/MACD) auxiliary drawer by combining two plugin like this:
+Creating a [MACD](https://en.wikipedia.org/wiki/MACD) auxiliary drawer by combining two plugin like this:
 
 ```js
 // ...

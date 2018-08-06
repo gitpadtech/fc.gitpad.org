@@ -5,6 +5,7 @@ import doc from '../../docs/pages/demos/candle-stick/candle-stick.md';
 import BasicDemo from '../../docs/pages/demos/candle-stick/basic';
 import MockDemo from '../../docs/pages/demos/candle-stick/mock';
 import LoadMoreDemo from '../../docs/pages/demos/candle-stick/loadMore';
+import IndicatorsDemo from '../../docs/pages/demos/candle-stick/indicators';
 import withRoot from '../../withRoot';
 
 export default withRoot((props) => (
@@ -29,7 +30,13 @@ export default withRoot((props) => (
           raw: preval`
   module.exports = require('fs')
     .readFileSync(require.resolve('../../docs/pages/demos/candle-stick/loadMore.js'), 'utf8')
-        `}
+        `},
+        'pages/demos/candle-stick/indicators.js': {
+          js: IndicatorsDemo,
+          raw: preval`
+  module.exports = require('fs')
+    .readFileSync(require.resolve('../../docs/pages/demos/candle-stick/indicators.js'), 'utf8')
+        `},
       }}
       {...props}
     />
