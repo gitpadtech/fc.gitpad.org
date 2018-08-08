@@ -29,7 +29,7 @@ const styles = theme => ({
 });
 
 const demoRegexp = /^"demo": "(.*)"/;
-const SOURCE_CODE_ROOT_URL = 'https://github.com/gitpadtech/finance-chart.gitpad.org/tree/master';
+const SOURCE_CODE_ROOT_URL = 'https://github.com/gitpadtech/fc.gitpad.org/tree/master';
 
 function MarkdownDocs(props) {
   const { classes, demos, markdown, markdownLocation: markdownLocationProp } = props;
