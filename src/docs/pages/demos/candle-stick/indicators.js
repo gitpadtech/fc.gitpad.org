@@ -44,7 +44,7 @@ const INDICATORS = [
   'VOL',
   'KDJ',
   'RSI',
-  'DMS',
+  'DMA',
 ];
 
 const styles = theme => ({

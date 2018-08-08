@@ -20,7 +20,7 @@ export function getDependencies(raw) {
     '@material-ui/core': '^1.4.1',
     'react-dom': '^16.4.1',
     '@material-ui/icons': '^1.1.0',
-    '@gitpad/finance-chart': '1.0.0-alpha.21',
+    '@gitpad/finance-chart': '1.0.0-alpha.24',
     react: '^16.4.1',
   };
   const re = /from\s+['"]([^']+)['"]/gm;

@@ -9,9 +9,9 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@gitpad/finance-chart@^1.0.0-alpha.19":
-  version "1.0.0-alpha.19"
-  resolved "https://registry.yarnpkg.com/@gitpad/finance-chart/-/finance-chart-1.0.0-alpha.19.tgz#25a0de1948effada167bd6a59454a5dc6873e3f4"
+"@gitpad/finance-chart@^1.0.0-alpha.24":
+  version "1.0.0-alpha.24"
+  resolved "https://registry.yarnpkg.com/@gitpad/finance-chart/-/finance-chart-1.0.0-alpha.24.tgz#15df29e0df75602b49845904c46fdb39f02a9a9d"
   dependencies:
     "@types/d3-array" "^1.2.1"
     "@types/d3-scale" "^2.0.0"
