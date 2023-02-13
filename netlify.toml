@@ -1,7 +1,6 @@
 [build]
   publish = "public"
   command = "yarn run build"
-  environment = { NODE_VERSION = "14.15.3" }
 [build.environment]
   YARN_VERSION = "1.5.1"
   NODE_VERSION = "10.0.0"
